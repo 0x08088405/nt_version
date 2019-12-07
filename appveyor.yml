@@ -6,16 +6,11 @@ environment:
     CRATE_NAME: nt_version
 
   matrix:
-    # MinGW
-    - TARGET: i686-pc-windows-gnu
-    - TARGET: x86_64-pc-windows-gnu
-
-    # MSVC
     - TARGET: i686-pc-windows-msvc
+      RUST_VERSION: stable
     - TARGET: x86_64-pc-windows-msvc
-
-    # Testing other channels
-    - TARGET: x86_64-pc-windows-gnu
+      RUST_VERSION: stable
+    - TARGET: i686-pc-windows-msvc
       RUST_VERSION: nightly
     - TARGET: x86_64-pc-windows-msvc
       RUST_VERSION: nightly
@@ -36,10 +31,8 @@ install:
 test_script:
   - cargo build --target %TARGET% &&
       cargo build --target %TARGET% --release &&
-      cargo test --target %TARGET% &&
-      cargo test --target %TARGET% --release &&
-      cargo run --target %TARGET% -- -p &&
-      cargo run --target %TARGET% --release -- -p
+      cargo test --target %TARGET% -- --nocapture &&
+      cargo test --target %TARGET% --release -- --nocapture
 
 cache:
   - C:\Users\appveyor\.cargo\registry
