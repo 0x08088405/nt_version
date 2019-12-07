@@ -24,4 +24,4 @@ fn main() {
 
 ## Why?
 Microsoft deprecated [GetVersionEx](https://docs.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-getversionexa)
-in Windows 8.1 and it's very difficult to get reliable exact OS versions now.
+in Windows 8.1 and there's not really a good way to just get the version now, not that *that* function was very reliable.
