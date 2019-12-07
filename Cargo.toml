@@ -1,5 +1,6 @@
 [package]
 name = "nt_version"
+description = "Queries the major, minor and build version of Windows (NT) efficiently."
 version = "0.1.0"
 authors = ["viri <git@stuff.moe>"]
 edition = "2018"
