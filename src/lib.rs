@@ -37,6 +37,22 @@ mod internal {
 }
 
 /// Queries the (major, minor, build) version of the Windows NT system.
+/// The versions correspond to this table (transcribed from [here](http://www.geoffchappell.com/studies/windows/win32/ntdll/history/index.htm)):
+///
+/// | Version | Windows | NT |
+/// | ------- | ------- | -- |
+/// | 3.51 | | Windows NT 3.51 |
+/// | 4.0 | Windows 95 | Windows NT 4.0 |
+/// | 4.10 | Windows 98 | |
+/// | 4.90 | Windows Me | |
+/// | 5.0 | | Windows 2000 |
+/// | 5.1 | | Windows XP |
+/// | 5.2 | | Windows Server 2003 |
+/// | 6.0 | | Windows Vista / Windows Server 2008 |
+/// | 6.1 | | Windows 7 / Windows Server 2008 R2 |
+/// | 6.2 | | Windows 8 |
+/// | 6.3 | | Windows 8.1 |
+/// | 10.0 | | Windows 10 |
 pub fn get() -> (u32, u32, u32) {
     let (mut major, mut minor, mut build) = (0u32, 0u32, 0u32);
     unsafe {
