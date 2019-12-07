@@ -6,6 +6,8 @@ authors = ["viri <git@stuff.moe>"]
 documentation = "https://docs.rs/nt_version/"
 homepage = "https://github.com/notviri/nt_version"
 repository = "https://github.com/notviri/nt_version"
+keywords = ["windows", "nt", "version", "win32", "OS"]
+categories = ["external-ffi-bindings", "no-std", "os::windows-apis"]
 license = "Unlicense"
 edition = "2018"
 
