@@ -15,7 +15,7 @@ nt_version = { version = "0.1", features = ["fallback"] }
 ```
 
 ## Usage
-It only has one function: [get](https://www.google.com/), and it's recommended you use it explicitly:
+It only has one function: [get](https://docs.rs/nt_version/0.1.0/nt_version/fn.get.html), and it's recommended you use it explicitly:
 
 ```rust
 fn main() {
