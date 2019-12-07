@@ -28,7 +28,7 @@ mod internal {
 mod internal {
     #![allow(non_snake_case)]
 
-    use std::{mem::transmute, ptr};
+    use core::{mem::transmute, ptr};
     use winapi::um::libloaderapi::{GetModuleHandleA, GetProcAddress};
 
     static mut NTDLL_FUNCTION: *const () = ptr::null();
