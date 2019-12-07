@@ -11,6 +11,8 @@
 //!
 //! You can alternatively enable the **fallback** feature which queries the function pointer at runtime.
 
+#![no_std]
+
 #[cfg(not(target_os = "windows"))]
 compile_error!("This crate is for querying Windows, but the target isn't Windows.");
 
@@ -66,12 +68,4 @@ pub fn get() -> (u32, u32, u32) {
         internal::RtlGetNtVersionNumbers(&mut major as _, &mut minor as _, &mut build as _);
     }
     (major, minor, build)
-}
-
-/// Capturing the output isn't required, but if this ran you know it worked.
-#[cfg(test)]
-#[test]
-fn test() {
-    let (major, minor, build) = crate::get();
-    println!("Got windows version - v{}.{}.{}", major, minor, build);
 }
