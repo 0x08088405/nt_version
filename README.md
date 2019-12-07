@@ -1,5 +1,5 @@
 [![Build Status](https://ci.appveyor.com/api/projects/status/bqhc99s3k0bm1qv3?svg=true)](https://ci.appveyor.com/project/viri/nt-version)
-
+[![Docs.rs](https://docs.rs/nt_version/badge.svg)](https://docs.rs/nt_version/)
 # nt_version
 Queries the major, minor, and build version of Windows (NT) efficiently with usage of undocumented NTDLL functions. Needs a minimum version of NT 5.1 (Windows XP or above). **This crate is no_std.**
 ```toml
