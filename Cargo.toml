@@ -11,3 +11,6 @@ winapi = { version = "0.3", features = ["libloaderapi"], optional = true }
 [features]
 default = []
 fallback = ["winapi"]
+
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
