@@ -6,3 +6,8 @@ authors = ["viri <git@stuff.moe>"]
 edition = "2018"
 
 [dependencies]
+winapi = { version = "0.3", features = ["libloaderapi"], optional = true }
+
+[features]
+default = []
+fallback = ["winapi"]
