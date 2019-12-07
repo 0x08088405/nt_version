@@ -27,6 +27,6 @@ This returns the NTDLL version, which has [this numbering system](http://www.geo
 
 ## Why?
 Microsoft deprecated [GetVersionEx](https://docs.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-getversionexa)
-in Windows 8.1 and there's not really a good way to just get an OS version now. You can still use [NetWkstaGetInfo](https://docs.microsoft.com/en-us/windows/win32/api/lmwksta/nf-lmwksta-netwkstagetinfo) from `lmwksta.h`
+back in Windows 8.1 in favour of functions such as "[IsWindows8Point1OrGreater](https://docs.microsoft.com/en-us/windows/win32/sysinfo/version-helper-apis)" and there's not really a good way to just get an OS version now. You can still use [NetWkstaGetInfo](https://docs.microsoft.com/en-us/windows/win32/api/lmwksta/nf-lmwksta-netwkstagetinfo) from `lmwksta.h`
 if you just want the OS version without any build numbers, but it's much slower and allocates a [WKSTA_INFO_100](https://docs.microsoft.com/en-us/windows/win32/api/lmwksta/ns-lmwksta-wksta_info_100) chunk which you have to deallocate yourself,
 containing excess info your like PC name as a windows wide-string. Not very ideal.
