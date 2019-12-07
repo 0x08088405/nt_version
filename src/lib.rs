@@ -3,6 +3,13 @@
 //!
 //! It only has one function: [get](fn.get.html),
 //! and it's recommended you use it explicitly like `nt_version::get()` because of this.
+//!
+//!
+//! ## Build Error?
+//! If building fails with a linker error, you're missing `ntdll.lib` from your system.
+//! It doesn't come on older versions of Windows with the SDK and you need to install the DDK.
+//!
+//! You can alternatively enable the **fallback** feature which queries the function pointer at runtime.
 
 #[cfg(not(target_os = "windows"))]
 compile_error!("This crate is for querying Windows, but the target isn't Windows.");
