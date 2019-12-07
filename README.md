@@ -2,7 +2,7 @@
 
 # nt_version
 Queries the major, minor, and build version of Windows (NT) efficiently with usage of undocumented NTDLL functions.
-**Needs a minimum version of NT 5.1! (Windows XP or above)**
+**Needs a minimum version of NT 5.1 (Windows XP or above)**
 ```toml
 nt_version = "0.1"
 ```
@@ -23,6 +23,7 @@ fn main() {
     println!("NT Version v{}.{}.{}", major, minor, build);
 }
 ```
+This returns the NTDLL version, which has [this numbering system](http://www.geoffchappell.com/studies/windows/win32/ntdll/history/index.htm).
 
 ## Why?
 Microsoft deprecated [GetVersionEx](https://docs.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-getversionexa)
