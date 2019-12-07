@@ -16,11 +16,13 @@ environment:
       RUST_VERSION: nightly
 
 install:
+  # For some fucking reason appveyor only has ntdll.lib on x86_64!
+  # On the other hand, this gives us a great chance to test fallback on/off.
   - ps: >-
-      If ($Env:TARGET -eq 'x86_64-pc-windows-gnu') {
-        $Env:PATH += ';C:\msys64\mingw64\bin'
-      } ElseIf ($Env:TARGET -eq 'i686-pc-windows-gnu') {
-        $Env:PATH += ';C:\msys64\mingw32\bin'
+      If ($Env:TARGET -eq 'i686-pc-windows-msvc') {
+        $Env:FEATURES = '--features fallback'
+      } ElseIf ($Env:TARGET -eq 'x86_64-pc-windows-msvc') {
+        $Env:FEATURES = '';
       }
   - curl -sSf -o rustup-init.exe https://win.rustup.rs/
   - rustup-init.exe -y --default-host %TARGET% --default-toolchain %RUST_VERSION%
@@ -29,10 +31,10 @@ install:
   - cargo -V
 
 test_script:
-  - cargo build --target %TARGET% &&
-      cargo build --target %TARGET% --release &&
-      cargo test --target %TARGET% -- --nocapture &&
-      cargo test --target %TARGET% --release -- --nocapture
+  - cargo build --target %TARGET% %FEATURES% &&
+      cargo build --target %TARGET% %FEATURES% --release &&
+      cargo test --target %TARGET% %FEATURES% -- --nocapture &&
+      cargo test --target %TARGET% %FEATURES% --release -- --nocapture
 
 cache:
   - C:\Users\appveyor\.cargo\registry
