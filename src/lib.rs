@@ -44,3 +44,11 @@ pub fn get() -> (u32, u32, u32) {
     }
     (major, minor, build)
 }
+
+/// Capturing the output isn't required, but if this ran you know it worked.
+#[cfg(test)]
+#[test]
+fn test() {
+    let (major, minor, build) = crate::get();
+    println!("Got windows version - v{}.{}.{}", major, minor, build);
+}
