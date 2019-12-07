@@ -1,6 +1,7 @@
 [![Build Status](https://ci.appveyor.com/api/projects/status/bqhc99s3k0bm1qv3?svg=true)](https://ci.appveyor.com/project/viri/nt-version)
 [![Crates.io](https://img.shields.io/crates/v/nt_version)](https://crates.io/crates/nt_version)
 [![Docs.rs](https://docs.rs/nt_version/badge.svg)](https://docs.rs/nt_version/)
+[![License](https://img.shields.io/github/license/notviri/nt_version)](https://unlicense.org/)
 # nt_version
 Queries the major, minor, and build version of Windows (NT) efficiently with usage of undocumented NTDLL functions. Needs a minimum version of NT 5.1 (Windows XP or above). **This crate is no_std.**
 ```toml
