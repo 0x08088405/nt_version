@@ -1,7 +1,8 @@
 //! Queries the major, minor and build version of Windows (NT) efficiently
 //! with usage of undocumented ntdll functions.
 //!
-//! It only has one function: [get](fn.get.html).
+//! It only has one function: [get](fn.get.html),
+//! and it's recommended you use it explicitly like `nt_version::get()` because of this.
 
 #[link(name = "ntdll")]
 extern "C" {
