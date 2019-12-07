@@ -1,5 +1,5 @@
 //! Queries the major, minor and build version of Windows (NT) efficiently
-//! with usage of undocumented NTDLL functions.
+//! with usage of undocumented NTDLL functions. **This crate is no_std.**
 //!
 //! It only has one function: [get](fn.get.html),
 //! and it's recommended you use it explicitly like `nt_version::get()` because of this.
