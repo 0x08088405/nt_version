@@ -19,7 +19,7 @@ compile_error!("This crate is for querying Windows, but the target isn't Windows
 #[cfg(not(feature = "fallback"))]
 mod internal {
     #[link(name = "ntdll")]
-    extern "C" {
+    extern "system" {
         pub fn RtlGetNtVersionNumbers(major: *mut u32, minor: *mut u32, build: *mut u32);
     }
 }
@@ -39,7 +39,7 @@ mod internal {
                 b"RtlGetNtVersionNumbers\0".as_ptr() as *const _,
             ) as *const _;
         }
-        transmute::<_, extern "stdcall" fn(*mut u32, *mut u32, *mut u32)>(NTDLL_FUNCTION)(
+        transmute::<_, extern "system" fn(*mut u32, *mut u32, *mut u32)>(NTDLL_FUNCTION)(
             major, minor, build,
         );
     }
